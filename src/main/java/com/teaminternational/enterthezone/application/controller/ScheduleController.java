@@ -19,6 +19,7 @@ public class ScheduleController {
         return scheduleApiService.getCurrentSchedule();
     }
 
+    @RequestMapping("/status")
     @GetMapping
     public GetCurrentScheduleStatusResponse getCurrentScheduleStatus() {
         return scheduleApiService.getCurrentScheduleStatus();

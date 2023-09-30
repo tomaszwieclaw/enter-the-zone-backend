@@ -1,5 +1,6 @@
 package com.teaminternational.enterthezone.domain.usecase;
 
+import com.teaminternational.enterthezone.domain.model.EventPriority;
 import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
 import com.teaminternational.enterthezone.domain.model.TimeTable;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 
 @SpringBootTest
 class OrganizeSingleDayUseCaseTest {
@@ -28,6 +31,8 @@ class OrganizeSingleDayUseCaseTest {
         //then
         result
                 .getScheduledEvents()
+                .stream()
+                .sorted(Comparator.comparing(ScheduledEvent::getStartTime))
                 .forEach(System.out::println);
     }
 
@@ -45,14 +50,20 @@ class OrganizeSingleDayUseCaseTest {
 
     private List<ScheduledEvent> workingDayEvents() {
         var dailyMeeting = new ScheduledEvent(
-                1L,
+                UUID.randomUUID(),
                 "Daily Meeting",
-                TimeTable.DEFAULT_DURATION.multipliedBy(1)
+                TimeTable.DEFAULT_DURATION.multipliedBy(1),
+                null,
+                null,
+                EventPriority.NORMAL
         );
         var techInterview = new ScheduledEvent(
-                2L,
+                UUID.randomUUID(),
                 "Tech Interview",
-                TimeTable.DEFAULT_DURATION.multipliedBy(6)
+                TimeTable.DEFAULT_DURATION.multipliedBy(6),
+                null,
+                null,
+                EventPriority.NORMAL
         );
         techInterview.setStartTime(LocalTime.of(12, 0));
         dailyMeeting.setStartTime(LocalTime.of(9, 15));
@@ -60,19 +71,28 @@ class OrganizeSingleDayUseCaseTest {
                 dailyMeeting,
                 techInterview,
                 new ScheduledEvent(
-                        3L,
+                        UUID.randomUUID(),
                         "In the zone (1)",
-                        TimeTable.DEFAULT_DURATION.multipliedBy(3)
+                        TimeTable.DEFAULT_DURATION.multipliedBy(5),
+                        null,
+                        null,
+                        EventPriority.NORMAL
                 ),
                 new ScheduledEvent(
-                        4L,
+                        UUID.randomUUID(),
                         "In the zone (2)",
-                        TimeTable.DEFAULT_DURATION.multipliedBy(3)
+                        TimeTable.DEFAULT_DURATION.multipliedBy(5),
+                        null,
+                        null,
+                        EventPriority.NORMAL
                 ),
                 new ScheduledEvent(
-                        5L,
+                        UUID.randomUUID(),
                         "In the zone (3)",
-                        TimeTable.DEFAULT_DURATION.multipliedBy(3)
+                        TimeTable.DEFAULT_DURATION.multipliedBy(5),
+                        null,
+                        null,
+                        EventPriority.NORMAL
                 )
         );
     }

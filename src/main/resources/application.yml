@@ -11,4 +11,4 @@ spring:
 optaplanner:
   solver:
     termination:
-      spent-limit: 5s
+      unimproved-spent-limit: 2s

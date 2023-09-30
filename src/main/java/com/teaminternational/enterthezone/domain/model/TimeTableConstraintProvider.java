@@ -20,7 +20,6 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
                 .forEach(ScheduledEvent.class)
                 .join(
                         ScheduledEvent.class,
-                        Joiners.lessThan(ScheduledEvent::getId),
                         Joiners.filtering((e1, e2) -> e2.getStartTime().isBefore(e1.getStartTime().plus(e1.getDuration())))
                         )
                 .penalize(HardSoftScore.ONE_HARD)

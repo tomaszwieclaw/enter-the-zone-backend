@@ -8,6 +8,6 @@ public record ScheduledEventDTO(
         String eventName,
         LocalTime startTime,
         LocalTime endTime,
-        int totalDurationMin
+        long totalDurationMin
 ) {
 }

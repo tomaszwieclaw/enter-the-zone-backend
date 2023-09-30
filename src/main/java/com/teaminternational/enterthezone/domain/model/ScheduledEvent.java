@@ -1,6 +1,7 @@
 package com.teaminternational.enterthezone.domain.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,23 +10,22 @@ import org.optaplanner.core.api.domain.lookup.PlanningId;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.UUID;
 
 @Setter
 @Getter
+@AllArgsConstructor
 @NoArgsConstructor
 @PlanningEntity
 public class ScheduledEvent {
-    private @PlanningId Long id;
+    private @PlanningId UUID id;
     private String eventName;
     private Duration duration;
+    private LocalDate eventDate;
     private @PlanningVariable LocalTime startTime;
-
-    public ScheduledEvent(Long id, String eventName, Duration duration) {
-        this.id = id;
-        this.eventName = eventName;
-        this.duration = duration;
-    }
+    private EventPriority priority;
 
     public LocalTime getStartTimePretty() {
         return startTime;
@@ -33,6 +33,16 @@ public class ScheduledEvent {
 
     public LocalTime getEndTimePretty() {
         return startTime.plus(duration);
+    }
+
+    public ScheduledEventDTO toDTO() {
+        return new ScheduledEventDTO(
+                id,
+                eventName,
+                startTime,
+                startTime.plus(duration),
+                duration.toMinutes()
+        );
     }
 
     @Override
