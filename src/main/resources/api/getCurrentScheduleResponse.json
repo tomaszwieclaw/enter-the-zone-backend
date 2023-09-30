@@ -1,5 +1,6 @@
 {
-  "lastUpdated": "2023-09-30T15:42:09.828254",
+  "lastUpdated": "2023-09-30T18:12:37.2882989",
+  "today": "2023-10-02",
   "weeklySchedules": [
     {
       "monday": {
@@ -8,42 +9,42 @@
         "workdayEndTime": "17:00:00",
         "scheduledEvents": [
           {
-            "id": "413d2c47-c3e0-457a-978c-311e1faf281e",
+            "id": "2f56da1b-b605-4fed-a218-84802522a1a0",
             "eventName": "Daily Scrum",
             "startTime": "09:00:00",
             "endTime": "09:15:00",
             "totalDurationMin": 15
           },
           {
-            "id": "e77ec17b-2eed-4abd-9191-7e008a132764",
+            "id": "fe088c5a-7f9e-4719-9534-aa0c32fd39d1",
             "eventName": "Tech Interview",
             "startTime": "10:00:00",
             "endTime": "11:30:00",
             "totalDurationMin": 90
           },
           {
-            "id": "bd50aad3-fef7-44ce-85df-bfe2038225b5",
+            "id": "3f281f4b-219a-447c-9f32-aaf144820cff",
             "eventName": "In the zone (1)",
             "startTime": "12:00:00",
             "endTime": "13:00:00",
             "totalDurationMin": 60
           },
           {
-            "id": "f17f7084-fb16-4477-94cd-7cebbbdd5a52",
+            "id": "b3de957b-2e77-446d-89d9-b17479f161e6",
             "eventName": "Lunch",
             "startTime": "13:15:00",
             "endTime": "14:00:00",
             "totalDurationMin": 45
           },
           {
-            "id": "77207370-bbe2-4386-985f-dbe6ac991b0d",
+            "id": "2728da9e-df51-468e-9c8a-ad84609d27e1",
             "eventName": "In the zone (2)",
             "startTime": "14:15:00",
             "endTime": "15:15:00",
             "totalDurationMin": 60
           },
           {
-            "id": "64130685-3b40-4b32-8cdd-be4350f9da30",
+            "id": "ab0e69a3-d078-4c43-bd28-e443db059c13",
             "eventName": "Management Duties",
             "startTime": "15:30:00",
             "endTime": "17:00:00",
@@ -57,7 +58,7 @@
         "workdayEndTime": "17:00:00",
         "scheduledEvents": [
           {
-            "id": "e5c9ebd5-12db-4280-92b0-e7dfb5173c6e",
+            "id": "2fb79c83-dc8d-4803-a15d-796b963224f4",
             "eventName": "Daily Scrum",
             "startTime": "09:00:00",
             "endTime": "09:15:00",
@@ -71,7 +72,7 @@
         "workdayEndTime": "17:00:00",
         "scheduledEvents": [
           {
-            "id": "4b1df4a6-ff41-42b7-9e31-a3b55a853c47",
+            "id": "2eb6bdb8-b95b-4957-a5ef-f523232f091e",
             "eventName": "Daily Scrum",
             "startTime": "09:00:00",
             "endTime": "09:15:00",
@@ -85,7 +86,7 @@
         "workdayEndTime": "17:00:00",
         "scheduledEvents": [
           {
-            "id": "3baada03-c33d-4435-a251-4d19b06268e7",
+            "id": "e8ffb4ab-a587-487e-ab33-ee53096894af",
             "eventName": "Daily Scrum",
             "startTime": "09:00:00",
             "endTime": "09:15:00",
@@ -99,7 +100,7 @@
         "workdayEndTime": "17:00:00",
         "scheduledEvents": [
           {
-            "id": "8f4083f4-dbaa-402f-88f8-c813dc83920a",
+            "id": "04d50b50-1584-4244-a237-c69da79f18eb",
             "eventName": "Daily Scrum",
             "startTime": "09:00:00",
             "endTime": "09:15:00",

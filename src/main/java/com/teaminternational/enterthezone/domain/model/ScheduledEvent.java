@@ -19,7 +19,7 @@ public class ScheduledEvent {
     private @PlanningId Long id;
     private String eventName;
     private Duration duration;
-    private @PlanningVariable TimeEntry startTime;
+    private @PlanningVariable LocalTime startTime;
 
     public ScheduledEvent(Long id, String eventName, Duration duration) {
         this.id = id;
@@ -28,11 +28,11 @@ public class ScheduledEvent {
     }
 
     public LocalTime getStartTimePretty() {
-        return startTime.startTime();
+        return startTime;
     }
 
     public LocalTime getEndTimePretty() {
-        return startTime.startTime().plus(duration);
+        return startTime.plus(duration);
     }
 
     @Override

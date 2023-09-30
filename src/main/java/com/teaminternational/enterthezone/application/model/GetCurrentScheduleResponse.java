@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 public class GetCurrentScheduleResponse {
     private final LocalDateTime lastUpdated;
+    private final LocalDate today;
     private final List<WeeklySchedule> weeklySchedules;
 
     @Getter

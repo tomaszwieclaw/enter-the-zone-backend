@@ -18,8 +18,8 @@ public class GetCurrentScheduleApiService {
     public GetCurrentScheduleResponse getCurrentSchedule() {
         final var monday = new GetCurrentScheduleResponse.DailySchedule();
         monday.setDate(LocalDate.of(2023, Month.OCTOBER, 2));
-        monday.setWorkdayStartTime(LocalTime.of(9,0));
-        monday.setWorkdayEndTime(LocalTime.of(17,0));
+        monday.setWorkdayStartTime(LocalTime.of(9, 0));
+        monday.setWorkdayEndTime(LocalTime.of(17, 0));
         monday.setScheduledEvents(
                 List.of(
                         new ScheduledEventDTO(
@@ -69,8 +69,8 @@ public class GetCurrentScheduleApiService {
 
         final var tuesday = new GetCurrentScheduleResponse.DailySchedule();
         tuesday.setDate(LocalDate.of(2023, Month.OCTOBER, 3));
-        tuesday.setWorkdayStartTime(LocalTime.of(9,0));
-        tuesday.setWorkdayEndTime(LocalTime.of(17,0));
+        tuesday.setWorkdayStartTime(LocalTime.of(9, 0));
+        tuesday.setWorkdayEndTime(LocalTime.of(17, 0));
         tuesday.setScheduledEvents(
                 List.of(
                         new ScheduledEventDTO(
@@ -85,8 +85,8 @@ public class GetCurrentScheduleApiService {
 
         final var wednesday = new GetCurrentScheduleResponse.DailySchedule();
         wednesday.setDate(LocalDate.of(2023, Month.OCTOBER, 4));
-        wednesday.setWorkdayStartTime(LocalTime.of(9,0));
-        wednesday.setWorkdayEndTime(LocalTime.of(17,0));
+        wednesday.setWorkdayStartTime(LocalTime.of(9, 0));
+        wednesday.setWorkdayEndTime(LocalTime.of(17, 0));
         wednesday.setScheduledEvents(
                 List.of(
                         new ScheduledEventDTO(
@@ -101,8 +101,8 @@ public class GetCurrentScheduleApiService {
 
         final var thursday = new GetCurrentScheduleResponse.DailySchedule();
         thursday.setDate(LocalDate.of(2023, Month.OCTOBER, 5));
-        thursday.setWorkdayStartTime(LocalTime.of(9,0));
-        thursday.setWorkdayEndTime(LocalTime.of(17,0));
+        thursday.setWorkdayStartTime(LocalTime.of(9, 0));
+        thursday.setWorkdayEndTime(LocalTime.of(17, 0));
         thursday.setScheduledEvents(
                 List.of(
                         new ScheduledEventDTO(
@@ -117,8 +117,8 @@ public class GetCurrentScheduleApiService {
 
         final var friday = new GetCurrentScheduleResponse.DailySchedule();
         friday.setDate(LocalDate.of(2023, Month.OCTOBER, 6));
-        friday.setWorkdayStartTime(LocalTime.of(9,0));
-        friday.setWorkdayEndTime(LocalTime.of(17,0));
+        friday.setWorkdayStartTime(LocalTime.of(9, 0));
+        friday.setWorkdayEndTime(LocalTime.of(17, 0));
         friday.setScheduledEvents(
                 List.of(
                         new ScheduledEventDTO(
@@ -150,6 +150,7 @@ public class GetCurrentScheduleApiService {
 
         return new GetCurrentScheduleResponse(
                 LocalDateTime.now(),
+                LocalDate.of(2023, Month.OCTOBER, 2),
                 Collections.singletonList(weeklySchedule)
         );
     }

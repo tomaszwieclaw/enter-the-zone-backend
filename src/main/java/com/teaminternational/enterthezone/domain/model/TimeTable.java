@@ -10,6 +10,8 @@ import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.List;
 
 @NoArgsConstructor
@@ -17,10 +19,11 @@ import java.util.List;
 @Setter
 @PlanningSolution
 public class TimeTable {
+    public static final Duration DEFAULT_DURATION = Duration.ofMinutes(15);
 
     @ValueRangeProvider
     @ProblemFactCollectionProperty
-    private List<TimeEntry> timeEntries;
+    private List<LocalTime> timeEntries;
 
     @PlanningEntityCollectionProperty
     private List<ScheduledEvent> scheduledEvents;
@@ -29,7 +32,7 @@ public class TimeTable {
     private HardSoftScore score;
 
     public TimeTable(
-            List<TimeEntry> timeEntries,
+            List<LocalTime> timeEntries,
             List<ScheduledEvent> scheduledEvents
     ) {
         this.timeEntries = timeEntries;
