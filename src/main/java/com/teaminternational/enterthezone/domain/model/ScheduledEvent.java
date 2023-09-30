@@ -16,10 +16,10 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @PlanningEntity
 public class ScheduledEvent {
-    @PlanningId Long id;
-    String eventName;
-    Duration duration;
-    @PlanningVariable TimeEntry startTime;
+    private @PlanningId Long id;
+    private String eventName;
+    private Duration duration;
+    private @PlanningVariable TimeEntry startTime;
 
     public ScheduledEvent(Long id, String eventName, Duration duration) {
         this.id = id;

@@ -21,7 +21,7 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
                 .join(
                         ScheduledEvent.class,
                         Joiners.lessThan(ScheduledEvent::getId),
-                        Joiners.filtering((e1, e2) -> e2.getStartTime().startTime().isBefore(e1.getStartTime().startTime().plus(e1.duration)))
+                        Joiners.filtering((e1, e2) -> e2.getStartTime().startTime().isBefore(e1.getStartTime().startTime().plus(e1.getDuration())))
                         )
                 .penalize(HardSoftScore.ONE_HARD)
                 .asConstraint("TimeEntry conflict");
