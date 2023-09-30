@@ -31,4 +31,8 @@ public class ScheduledEventEntity {
 
     @Enumerated(EnumType.STRING)
     private EventPriority priority;
+
+    private LocalTime minPreferredStartTime;
+
+    private LocalTime maxPreferredStartTime;
 }

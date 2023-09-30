@@ -13,3 +13,7 @@ databaseChangeLog:
       file: classpath:db/changelog/06-insert-basic-settings.sql
   - include:
       file: classpath:db/changelog/07-create-table-scheduled-event.sql
+  - include:
+      file: classpath:db/changelog/08-update-table-scheduled-event.sql
+  - include:
+      file: classpath:db/changelog/09-insert-basic-settings.sql

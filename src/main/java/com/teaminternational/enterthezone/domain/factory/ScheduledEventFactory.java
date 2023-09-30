@@ -19,7 +19,9 @@ public class ScheduledEventFactory {
                 Duration.ofMinutes(request.durationMinutes()),
                 request.eventDate(),
                 request.startTime(),
-                Optional.ofNullable(request.priority()).orElse(EventPriority.NORMAL)
+                Optional.ofNullable(request.priority()).orElse(EventPriority.NORMAL),
+                request.minPreferredStartTime(),
+                request.maxPreferredStartTime()
         );
     }
 }

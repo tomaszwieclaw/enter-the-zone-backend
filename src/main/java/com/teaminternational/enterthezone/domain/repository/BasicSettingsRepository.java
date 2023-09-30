@@ -5,4 +5,6 @@ import com.teaminternational.enterthezone.domain.model.BasicSettings;
 public interface BasicSettingsRepository {
 
     BasicSettings findAll();
+
+    void updateAll(BasicSettings basicSettings);
 }

@@ -15,7 +15,9 @@ public class ScheduledEventEntityMapper {
                 domainEntity.getDuration().toMinutes(),
                 domainEntity.getEventDate(),
                 domainEntity.getStartTime(),
-                domainEntity.getPriority()
+                domainEntity.getPriority(),
+                domainEntity.getMinPreferredStartTime(),
+                domainEntity.getMaxPreferredStartTime()
         );
     }
 
@@ -26,7 +28,9 @@ public class ScheduledEventEntityMapper {
                 Duration.ofMinutes(databaseEntity.getDuration()),
                 databaseEntity.getEventDate(),
                 databaseEntity.getStartTime(),
-                databaseEntity.getPriority()
+                databaseEntity.getPriority(),
+                databaseEntity.getMinPreferredStartTime(),
+                databaseEntity.getMaxPreferredStartTime()
         );
     }
 }

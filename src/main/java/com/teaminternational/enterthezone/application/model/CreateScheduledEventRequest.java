@@ -10,6 +10,8 @@ public record CreateScheduledEventRequest(
         LocalDate eventDate,
         LocalTime startTime,
         int durationMinutes,
-        EventPriority priority
+        EventPriority priority,
+        LocalTime minPreferredStartTime,
+        LocalTime maxPreferredStartTime
 ) {
 }

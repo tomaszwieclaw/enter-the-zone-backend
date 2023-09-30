@@ -26,6 +26,8 @@ public class ScheduledEvent {
     private LocalDate eventDate;
     private @PlanningVariable LocalTime startTime;
     private EventPriority priority;
+    private LocalTime minPreferredStartTime;
+    private LocalTime maxPreferredStartTime;
 
     public LocalTime getStartTimePretty() {
         return startTime;

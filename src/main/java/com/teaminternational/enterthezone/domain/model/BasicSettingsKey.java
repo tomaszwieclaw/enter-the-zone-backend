@@ -22,7 +22,10 @@ public enum BasicSettingsKey {
     SUNDAY_START_TIME(14L),
     SUNDAY_END_TIME(15L),
     IGNORE_SATURDAY(16L),
-    IGNORE_SUNDAY(17L);
+    IGNORE_SUNDAY(17L),
+    LUNCH_TIME_WINDOW_START(18L),
+    LUNCH_TIME_WINDOW_END(19L),
+    LUNCH_DURATION(20L);
 
     private final Long id;
 }
