@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "f161bbf0-0b7e-4dc3-8319-170b561591d0",
+		"name": "Enter The Zone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6402196"
+	},
+	"item": [
+		{
+			"name": "GetCurrentSchedule",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/schedules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"schedules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateScheduledEvent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"eventName\": \"Daily Standup\",\r\n    \"eventDate\": \"2023-10-02\",\r\n    \"startTime\": \"09:30\",\r\n    \"durationMinutes\": 15,\r\n    \"priority\": \"HIGH\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/scheduled-events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"scheduled-events"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
