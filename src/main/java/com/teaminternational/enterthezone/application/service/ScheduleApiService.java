@@ -1,7 +1,9 @@
 package com.teaminternational.enterthezone.application.service;
 
 import com.teaminternational.enterthezone.application.model.GetCurrentScheduleResponse;
+import com.teaminternational.enterthezone.application.model.GetCurrentScheduleStatusResponse;
 import com.teaminternational.enterthezone.domain.model.ScheduledEventDTO;
+import com.teaminternational.enterthezone.domain.model.TimeTableStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class GetCurrentScheduleApiService {
+public class ScheduleApiService {
 
     public GetCurrentScheduleResponse getCurrentSchedule() {
         final var monday = new GetCurrentScheduleResponse.DailySchedule();
@@ -152,6 +154,12 @@ public class GetCurrentScheduleApiService {
                 LocalDateTime.now(),
                 LocalDate.of(2023, Month.OCTOBER, 2),
                 Collections.singletonList(weeklySchedule)
+        );
+    }
+
+    public GetCurrentScheduleStatusResponse getCurrentScheduleStatus() {
+        return new GetCurrentScheduleStatusResponse(
+                TimeTableStatus.UP_TO_DATE
         );
     }
 }
