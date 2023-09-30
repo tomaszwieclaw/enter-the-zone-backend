@@ -5,3 +5,9 @@ databaseChangeLog:
       file: classpath:db/changelog/02-create-table-user-data.sql
   - include:
       file: classpath:db/changelog/03-insert-user-data.sql
+  - include:
+      file: classpath:db/changelog/04-create-table-basic-settings.sql
+  - include:
+      file: classpath:db/changelog/05-insert-basic-settings.sql
+  - include:
+      file: classpath:db/changelog/06-insert-basic-settings.sql
