@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/user-settings")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserSettingsController {
     private final UserSettingsApiService userSettingsApiService;
 
