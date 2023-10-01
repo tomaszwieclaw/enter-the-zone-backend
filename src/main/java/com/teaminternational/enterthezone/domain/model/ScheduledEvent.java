@@ -40,10 +40,14 @@ public class ScheduledEvent {
     public ScheduledEventDTO toDTO() {
         return new ScheduledEventDTO(
                 id,
+                eventDate,
                 eventName,
                 startTime,
                 startTime.plus(duration),
-                duration.toMinutes()
+                duration.toMinutes(),
+                priority,
+                minPreferredStartTime,
+                maxPreferredStartTime
         );
     }
 

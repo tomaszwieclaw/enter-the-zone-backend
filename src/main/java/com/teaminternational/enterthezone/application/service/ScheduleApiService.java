@@ -2,6 +2,7 @@ package com.teaminternational.enterthezone.application.service;
 
 import com.teaminternational.enterthezone.application.model.GetCurrentScheduleResponse;
 import com.teaminternational.enterthezone.application.model.GetCurrentScheduleStatusResponse;
+import com.teaminternational.enterthezone.domain.model.EventPriority;
 import com.teaminternational.enterthezone.domain.model.ScheduledEventDTO;
 import com.teaminternational.enterthezone.domain.model.TimeTableStatus;
 import org.springframework.stereotype.Service;
@@ -26,45 +27,69 @@ public class ScheduleApiService {
                 List.of(
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                monday.getDate(),
                                 "Daily Scrum",
                                 LocalTime.of(9, 0),
                                 LocalTime.of(9, 15),
-                                15
+                                15,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         ),
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                monday.getDate(),
                                 "Tech Interview",
                                 LocalTime.of(10, 0),
                                 LocalTime.of(11, 30),
-                                90
+                                90,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         ),
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                monday.getDate(),
                                 "In the zone (1)",
                                 LocalTime.of(12, 0),
                                 LocalTime.of(13, 0),
-                                60
+                                60,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         ),
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                monday.getDate(),
                                 "Lunch",
                                 LocalTime.of(13, 15),
                                 LocalTime.of(14, 0),
-                                45
+                                45,
+                                EventPriority.NORMAL,
+                                LocalTime.of(13, 30),
+                                LocalTime.of(15, 30)
                         ),
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                monday.getDate(),
                                 "In the zone (2)",
                                 LocalTime.of(14, 15),
                                 LocalTime.of(15, 15),
-                                60
+                                60,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         ),
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                monday.getDate(),
                                 "Management Duties",
                                 LocalTime.of(15, 30),
                                 LocalTime.of(17, 0),
-                                90
+                                90,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         )
                 )
         );
@@ -77,10 +102,14 @@ public class ScheduleApiService {
                 List.of(
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                tuesday.getDate(),
                                 "Daily Scrum",
                                 LocalTime.of(9, 0),
                                 LocalTime.of(9, 15),
-                                15
+                                15,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         )
                 )
         );
@@ -93,10 +122,14 @@ public class ScheduleApiService {
                 List.of(
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                wednesday.getDate(),
                                 "Daily Scrum",
                                 LocalTime.of(9, 0),
                                 LocalTime.of(9, 15),
-                                15
+                                15,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         )
                 )
         );
@@ -109,10 +142,14 @@ public class ScheduleApiService {
                 List.of(
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                thursday.getDate(),
                                 "Daily Scrum",
                                 LocalTime.of(9, 0),
                                 LocalTime.of(9, 15),
-                                15
+                                15,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         )
                 )
         );
@@ -125,10 +162,14 @@ public class ScheduleApiService {
                 List.of(
                         new ScheduledEventDTO(
                                 UUID.randomUUID(),
+                                friday.getDate(),
                                 "Daily Scrum",
                                 LocalTime.of(9, 0),
                                 LocalTime.of(9, 15),
-                                15
+                                15,
+                                EventPriority.NORMAL,
+                                null,
+                                null
                         )
                 )
         );

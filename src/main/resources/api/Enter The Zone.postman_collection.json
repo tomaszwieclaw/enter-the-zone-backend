@@ -54,6 +54,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GetAllScheduledEvents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/scheduled-events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"scheduled-events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateGeneralSettings",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"preferredLunchTimeWindowStart\": \"13:30\",\r\n    \"preferredLunchTimeWindowEnd\": \"15:30\",\r\n    \"lunchTimeDurationMinutes\": 45,\r\n    \"workingDayStartTime\": \"09:00\",\r\n    \"workingDayEndTime\": \"17:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user-settings/general",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user-settings",
+						"general"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
