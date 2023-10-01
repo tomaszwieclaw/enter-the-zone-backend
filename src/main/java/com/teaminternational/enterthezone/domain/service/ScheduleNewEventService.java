@@ -15,13 +15,11 @@ import org.springframework.stereotype.Service;
 public class ScheduleNewEventService implements ScheduleNewEventUseCase {
     private final ScheduledEventFactory scheduledEventFactory;
     private final ScheduledEventRepository scheduledEventRepository;
-    private final RecalculateCurrentScheduleUseCase recalculateCurrentScheduleUseCase;
 
     @Override
     public ScheduledEventDTO execute(CreateScheduledEventsRequest.NewScheduledEvent newScheduledEvent) {
         ScheduledEvent scheduledEvent = scheduledEventFactory.create(newScheduledEvent);
         scheduledEventRepository.save(scheduledEvent);
-        recalculateCurrentScheduleUseCase.execute();
         return scheduledEvent.toDTO();
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserSettingsController {
     private final UserSettingsApiService userSettingsApiService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/general")
     public void updateGeneralSettings(@RequestBody UpdateGeneralSettingsRequest request) {
         userSettingsApiService.updateGeneralSettings(request);
