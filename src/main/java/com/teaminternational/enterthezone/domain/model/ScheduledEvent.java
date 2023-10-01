@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Setter
@@ -48,7 +49,9 @@ public class ScheduledEvent {
                 eventName,
                 eventType,
                 startTime,
-                startTime.plus(duration),
+                Optional.ofNullable(startTime)
+                        .map(st -> st.plus(duration))
+                        .orElse(null),
                 duration.toMinutes(),
                 priority,
                 minPreferredStartTime,

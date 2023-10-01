@@ -12,4 +12,6 @@ public interface ScheduledEventRepository {
     List<ScheduledEvent> findAll();
 
     List<ScheduledEvent> findByDate(LocalDate date);
+
+    List<ScheduledEvent> findAllFloatingTasks();
 }

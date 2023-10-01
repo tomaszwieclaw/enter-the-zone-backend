@@ -40,4 +40,13 @@ public class ScheduledEventRepositoryAdapter implements ScheduledEventRepository
                 .map(scheduledEventEntityMapper::mapToDomainEntity)
                 .toList();
     }
+
+    @Override
+    public List<ScheduledEvent> findAllFloatingTasks() {
+        return scheduledEventSpringDataRepository
+                .findAllByEventDateIsNull()
+                .stream()
+                .map(scheduledEventEntityMapper::mapToDomainEntity)
+                .toList();
+    }
 }

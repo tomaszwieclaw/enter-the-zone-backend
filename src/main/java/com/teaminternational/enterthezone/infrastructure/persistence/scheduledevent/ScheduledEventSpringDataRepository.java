@@ -9,4 +9,6 @@ import java.util.UUID;
 public interface ScheduledEventSpringDataRepository extends JpaRepository<ScheduledEventEntity, UUID> {
 
     List<ScheduledEventEntity> findAllByEventDate(LocalDate eventDate);
+
+    List<ScheduledEventEntity> findAllByEventDateIsNull();
 }
