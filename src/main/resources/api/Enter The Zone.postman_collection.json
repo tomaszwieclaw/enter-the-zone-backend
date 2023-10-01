@@ -104,6 +104,48 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "ExportAllScheduledEvents",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/scheduled-events/export",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"scheduled-events",
+						"export"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RecalculateOnDemand",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/schedules/recalculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"schedules",
+						"recalculate"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
