@@ -1,6 +1,6 @@
 package com.teaminternational.enterthezone.domain.service;
 
-import com.teaminternational.enterthezone.application.model.CreateScheduledEventRequest;
+import com.teaminternational.enterthezone.application.model.CreateScheduledEventsRequest;
 import com.teaminternational.enterthezone.domain.factory.ScheduledEventFactory;
 import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
 import com.teaminternational.enterthezone.domain.model.ScheduledEventDTO;
@@ -18,8 +18,8 @@ public class ScheduleNewEventService implements ScheduleNewEventUseCase {
     private final RecalculateCurrentScheduleUseCase recalculateCurrentScheduleUseCase;
 
     @Override
-    public ScheduledEventDTO execute(CreateScheduledEventRequest request) {
-        ScheduledEvent scheduledEvent = scheduledEventFactory.create(request);
+    public ScheduledEventDTO execute(CreateScheduledEventsRequest.NewScheduledEvent newScheduledEvent) {
+        ScheduledEvent scheduledEvent = scheduledEventFactory.create(newScheduledEvent);
         scheduledEventRepository.save(scheduledEvent);
         recalculateCurrentScheduleUseCase.execute();
         return scheduledEvent.toDTO();

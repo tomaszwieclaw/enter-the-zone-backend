@@ -1,7 +1,6 @@
 package com.teaminternational.enterthezone.application.controller;
 
-import com.teaminternational.enterthezone.application.model.CreateScheduledEventRequest;
-import com.teaminternational.enterthezone.application.model.CreateScheduledEventResponse;
+import com.teaminternational.enterthezone.application.model.CreateScheduledEventsRequest;
 import com.teaminternational.enterthezone.application.model.GetAllScheduledEventsResponse;
 import com.teaminternational.enterthezone.application.service.ScheduledEventApiService;
 import lombok.RequiredArgsConstructor;
@@ -14,12 +13,17 @@ public class ScheduledEventController {
     private final ScheduledEventApiService scheduledEventApiService;
 
     @PostMapping
-    public CreateScheduledEventResponse createScheduledEvent(@RequestBody CreateScheduledEventRequest request) {
-        return scheduledEventApiService.createScheduledEvent(request);
+    public void createScheduledEvents(@RequestBody CreateScheduledEventsRequest request) {
+        scheduledEventApiService.createScheduledEvents(request);
     }
 
     @GetMapping
     public GetAllScheduledEventsResponse getAllScheduledEvents() {
         return scheduledEventApiService.getAllScheduledEvents();
+    }
+
+    @PostMapping("/export")
+    public CreateScheduledEventsRequest createExportEventsJson() {
+        return scheduledEventApiService.createExportEventsJson();
     }
 }

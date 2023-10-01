@@ -1,6 +1,6 @@
 package com.teaminternational.enterthezone.domain.factory;
 
-import com.teaminternational.enterthezone.application.model.CreateScheduledEventRequest;
+import com.teaminternational.enterthezone.application.model.CreateScheduledEventsRequest;
 import com.teaminternational.enterthezone.domain.model.EventPriority;
 import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
 import org.springframework.stereotype.Component;
@@ -12,16 +12,16 @@ import java.util.UUID;
 @Component
 public class ScheduledEventFactory {
 
-    public ScheduledEvent create(CreateScheduledEventRequest request) {
+    public ScheduledEvent create(CreateScheduledEventsRequest.NewScheduledEvent newScheduledEvent) {
         return new ScheduledEvent(
                 UUID.randomUUID(),
-                request.eventName(),
-                Duration.ofMinutes(request.durationMinutes()),
-                request.eventDate(),
-                request.startTime(),
-                Optional.ofNullable(request.priority()).orElse(EventPriority.NORMAL),
-                request.minPreferredStartTime(),
-                request.maxPreferredStartTime()
+                newScheduledEvent.getEventName(),
+                Duration.ofMinutes(newScheduledEvent.getDurationMinutes()),
+                newScheduledEvent.getEventDate(),
+                newScheduledEvent.getStartTime(),
+                Optional.ofNullable(newScheduledEvent.getPriority()).orElse(EventPriority.NORMAL),
+                newScheduledEvent.getMinPreferredStartTime(),
+                newScheduledEvent.getMaxPreferredStartTime()
         );
     }
 }

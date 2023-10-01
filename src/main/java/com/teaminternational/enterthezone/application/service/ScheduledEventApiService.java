@@ -1,10 +1,9 @@
 package com.teaminternational.enterthezone.application.service;
 
-import com.teaminternational.enterthezone.application.model.CreateScheduledEventRequest;
-import com.teaminternational.enterthezone.application.model.CreateScheduledEventResponse;
+import com.teaminternational.enterthezone.application.model.CreateScheduledEventsRequest;
 import com.teaminternational.enterthezone.application.model.GetAllScheduledEventsResponse;
 import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
-import com.teaminternational.enterthezone.domain.model.ScheduledEventDTO;
+import com.teaminternational.enterthezone.domain.repository.ScheduledEventRepository;
 import com.teaminternational.enterthezone.domain.usecase.GetAllScheduledEventsUseCase;
 import com.teaminternational.enterthezone.domain.usecase.ScheduleNewEventUseCase;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +14,11 @@ import org.springframework.stereotype.Service;
 public class ScheduledEventApiService {
     private final ScheduleNewEventUseCase scheduleNewEventUseCase;
     private final GetAllScheduledEventsUseCase getAllScheduledEventsUseCase;
+    private final ScheduledEventRepository scheduledEventRepository;
 
-    public CreateScheduledEventResponse createScheduledEvent(CreateScheduledEventRequest request) {
-        ScheduledEventDTO scheduledEvent = scheduleNewEventUseCase.execute(request);
-        return new CreateScheduledEventResponse(
-                scheduledEvent.id()
-        );
+    public void createScheduledEvents(CreateScheduledEventsRequest request) {
+        request.getScheduledEvents()
+                .forEach(scheduleNewEventUseCase::execute);
     }
 
     public GetAllScheduledEventsResponse getAllScheduledEvents() {
@@ -30,5 +28,22 @@ public class ScheduledEventApiService {
                         .map(ScheduledEvent::toDTO)
                         .toList()
         );
+    }
+
+    public CreateScheduledEventsRequest createExportEventsJson() {
+        var newScheduledEvents = scheduledEventRepository
+                .findAll()
+                .stream()
+                .map(e -> new CreateScheduledEventsRequest.NewScheduledEvent(
+                        e.getEventName(),
+                        e.getEventDate(),
+                        e.getStartTime(),
+                        e.getDuration().toMinutes(),
+                        e.getPriority(),
+                        e.getMinPreferredStartTime(),
+                        e.getMaxPreferredStartTime()
+                ))
+                .toList();
+        return new CreateScheduledEventsRequest(newScheduledEvents);
     }
 }
