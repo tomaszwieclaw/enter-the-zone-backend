@@ -86,13 +86,13 @@ public class GetCurrentScheduleService implements GetCurrentScheduleUseCase {
         weeklySchedule.setFriday(friday);
 
         var saturday = new GetCurrentScheduleResponse.DailySchedule();
-        friday.setDate(LocalDate.of(2023, Month.OCTOBER, 7));
-        friday.setScheduledEvents(Collections.emptyList());
+        saturday.setDate(LocalDate.of(2023, Month.OCTOBER, 7));
+        saturday.setScheduledEvents(Collections.emptyList());
         weeklySchedule.setSaturday(saturday);
 
         var sunday = new GetCurrentScheduleResponse.DailySchedule();
-        friday.setDate(LocalDate.of(2023, Month.OCTOBER, 8));
-        friday.setScheduledEvents(Collections.emptyList());
+        sunday.setDate(LocalDate.of(2023, Month.OCTOBER, 8));
+        sunday.setScheduledEvents(Collections.emptyList());
         weeklySchedule.setSunday(sunday);
 
         return new GetCurrentScheduleResponse(
