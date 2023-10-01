@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -21,17 +20,14 @@ public class PlannedEventRepositoryAdapter implements PlannedEventRepository {
 
     @Override
     public void saveSingleDay(LocalDate date, List<ScheduledEvent> events) {
-        Optional<PlannedDayEntity> previouslyPlannedDay = plannedDaySpringDataRepository.findByDate(date);
-        if (previouslyPlannedDay.isPresent()) {
-            plannedEventSpringDataRepository.deleteAllByPlannedDayId(previouslyPlannedDay.get().getId());
-            plannedDaySpringDataRepository.deleteById(previouslyPlannedDay.get().getId());
-        }
-        var plannedDay = new PlannedDayEntity(
-                UUID.randomUUID(),
-                date,
-                LocalTime.of(9, 0),
-                LocalTime.of(17, 0)
-        );
+        PlannedDayEntity plannedDay = plannedDaySpringDataRepository.findByDate(date)
+                .orElseGet(() -> new PlannedDayEntity(
+                        UUID.randomUUID(),
+                        date,
+                        LocalTime.of(9, 0),
+                        LocalTime.of(17, 0)
+                ));
+        plannedDaySpringDataRepository.deleteById(plannedDay.getId());
         plannedDaySpringDataRepository.save(plannedDay);
         events
                 .stream()

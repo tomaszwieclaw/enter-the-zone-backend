@@ -24,7 +24,6 @@ public class RecalculateCurrentScheduleService implements RecalculateCurrentSche
     private final OrganizeSingleDayUseCase organizeSingleDayUseCase;
     private final PlannedEventRepository plannedEventRepository;
 
-    @Async
     @Override
     public void execute() {
         log.info("Recalculating schedule...");

@@ -4,10 +4,7 @@ import com.teaminternational.enterthezone.application.model.GetCurrentScheduleRe
 import com.teaminternational.enterthezone.application.model.GetCurrentScheduleStatusResponse;
 import com.teaminternational.enterthezone.application.service.ScheduleApiService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/api/schedules")
@@ -15,17 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class ScheduleController {
     private final ScheduleApiService scheduleApiService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public GetCurrentScheduleResponse getCurrentSchedule() {
         return scheduleApiService.getCurrentSchedule();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping("/status")
     @GetMapping
     public GetCurrentScheduleStatusResponse getCurrentScheduleStatus() {
         return scheduleApiService.getCurrentScheduleStatus();
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/recalculate")
     public void recalculateScheduleOnDemand() {
         scheduleApiService.recalculateScheduleOnDemand();
