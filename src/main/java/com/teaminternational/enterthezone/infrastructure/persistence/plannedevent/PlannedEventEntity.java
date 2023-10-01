@@ -1,9 +1,8 @@
 package com.teaminternational.enterthezone.infrastructure.persistence.plannedevent;
 
 import com.teaminternational.enterthezone.domain.model.EventPriority;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.teaminternational.enterthezone.domain.model.EventType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,12 +30,16 @@ public class PlannedEventEntity {
 
     private String eventName;
 
+    @Enumerated(EnumType.STRING)
+    private EventType eventType;
+
     private LocalTime startTime;
 
     private LocalTime endTime;
 
     private long totalDurationMin;
 
+    @Enumerated(EnumType.STRING)
     private EventPriority priority;
 
     private LocalTime minPreferredStartTime;

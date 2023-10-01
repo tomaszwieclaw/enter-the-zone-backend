@@ -8,6 +8,7 @@ public record ScheduledEventDTO(
         UUID id,
         LocalDate eventDate,
         String eventName,
+        EventType eventType,
         LocalTime startTime,
         LocalTime endTime,
         long totalDurationMin,

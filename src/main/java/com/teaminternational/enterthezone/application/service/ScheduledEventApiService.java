@@ -41,6 +41,7 @@ public class ScheduledEventApiService {
                 .stream()
                 .map(e -> new CreateScheduledEventsRequest.NewScheduledEvent(
                         e.getEventName(),
+                        e.getEventType(),
                         e.getEventDate(),
                         e.getStartTime(),
                         e.getDuration().toMinutes(),

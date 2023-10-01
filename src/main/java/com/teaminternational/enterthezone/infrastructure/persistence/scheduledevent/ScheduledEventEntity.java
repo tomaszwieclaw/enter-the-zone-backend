@@ -1,6 +1,7 @@
 package com.teaminternational.enterthezone.infrastructure.persistence.scheduledevent;
 
 import com.teaminternational.enterthezone.domain.model.EventPriority;
+import com.teaminternational.enterthezone.domain.model.EventType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,9 @@ public class ScheduledEventEntity {
     private UUID id;
 
     private String eventName;
+
+    @Enumerated(EnumType.STRING)
+    private EventType eventType;
 
     private long duration;
 

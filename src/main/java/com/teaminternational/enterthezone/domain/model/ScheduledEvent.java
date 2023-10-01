@@ -22,6 +22,7 @@ import java.util.UUID;
 public class ScheduledEvent {
     private @PlanningId UUID id;
     private String eventName;
+    private EventType eventType;
     private Duration duration;
     private LocalDate eventDate;
     private @PlanningVariable LocalTime startTime;
@@ -42,6 +43,7 @@ public class ScheduledEvent {
                 id,
                 eventDate,
                 eventName,
+                eventType,
                 startTime,
                 startTime.plus(duration),
                 duration.toMinutes(),

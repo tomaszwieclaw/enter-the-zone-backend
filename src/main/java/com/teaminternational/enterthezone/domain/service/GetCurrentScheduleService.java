@@ -107,6 +107,7 @@ public class GetCurrentScheduleService implements GetCurrentScheduleUseCase {
                 e.getEventId(),
                 e.getEventDate(),
                 e.getEventName(),
+                e.getEventType(),
                 e.getStartTime(),
                 e.getEndTime(),
                 e.getTotalDurationMin(),

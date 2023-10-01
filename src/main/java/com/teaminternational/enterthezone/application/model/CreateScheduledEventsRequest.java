@@ -1,6 +1,7 @@
 package com.teaminternational.enterthezone.application.model;
 
 import com.teaminternational.enterthezone.domain.model.EventPriority;
+import com.teaminternational.enterthezone.domain.model.EventType;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class CreateScheduledEventsRequest {
     @Setter
     public static class NewScheduledEvent {
         private String eventName;
+        private EventType eventType;
         private LocalDate eventDate;
         private LocalTime startTime;
         private long durationMinutes;

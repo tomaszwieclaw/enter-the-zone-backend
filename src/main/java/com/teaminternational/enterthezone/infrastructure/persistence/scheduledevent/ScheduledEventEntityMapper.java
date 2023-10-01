@@ -12,6 +12,7 @@ public class ScheduledEventEntityMapper {
         return new ScheduledEventEntity(
                 domainEntity.getId(),
                 domainEntity.getEventName(),
+                domainEntity.getEventType(),
                 domainEntity.getDuration().toMinutes(),
                 domainEntity.getEventDate(),
                 domainEntity.getStartTime(),
@@ -25,6 +26,7 @@ public class ScheduledEventEntityMapper {
         return new ScheduledEvent(
                 databaseEntity.getId(),
                 databaseEntity.getEventName(),
+                databaseEntity.getEventType(),
                 Duration.ofMinutes(databaseEntity.getDuration()),
                 databaseEntity.getEventDate(),
                 databaseEntity.getStartTime(),

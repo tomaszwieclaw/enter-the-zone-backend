@@ -38,6 +38,7 @@ public class PlannedEventRepositoryAdapter implements PlannedEventRepository {
                         e.id(),
                         e.eventDate(),
                         e.eventName(),
+                        e.eventType(),
                         e.startTime(),
                         e.endTime(),
                         e.totalDurationMin(),
