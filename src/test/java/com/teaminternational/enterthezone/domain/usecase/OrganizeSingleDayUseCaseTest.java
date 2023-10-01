@@ -55,7 +55,9 @@ class OrganizeSingleDayUseCaseTest {
                 TimeTable.DEFAULT_DURATION.multipliedBy(1),
                 null,
                 null,
-                EventPriority.NORMAL
+                EventPriority.NORMAL,
+                null,
+                null
         );
         var techInterview = new ScheduledEvent(
                 UUID.randomUUID(),
@@ -63,7 +65,9 @@ class OrganizeSingleDayUseCaseTest {
                 TimeTable.DEFAULT_DURATION.multipliedBy(6),
                 null,
                 null,
-                EventPriority.NORMAL
+                EventPriority.NORMAL,
+                null,
+                null
         );
         techInterview.setStartTime(LocalTime.of(12, 0));
         dailyMeeting.setStartTime(LocalTime.of(9, 15));
@@ -76,7 +80,9 @@ class OrganizeSingleDayUseCaseTest {
                         TimeTable.DEFAULT_DURATION.multipliedBy(5),
                         null,
                         null,
-                        EventPriority.NORMAL
+                        EventPriority.NORMAL,
+                        null,
+                        null
                 ),
                 new ScheduledEvent(
                         UUID.randomUUID(),
@@ -84,7 +90,9 @@ class OrganizeSingleDayUseCaseTest {
                         TimeTable.DEFAULT_DURATION.multipliedBy(5),
                         null,
                         null,
-                        EventPriority.NORMAL
+                        EventPriority.NORMAL,
+                        null,
+                        null
                 ),
                 new ScheduledEvent(
                         UUID.randomUUID(),
@@ -92,7 +100,9 @@ class OrganizeSingleDayUseCaseTest {
                         TimeTable.DEFAULT_DURATION.multipliedBy(5),
                         null,
                         null,
-                        EventPriority.NORMAL
+                        EventPriority.NORMAL,
+                        null,
+                        null
                 )
         );
     }

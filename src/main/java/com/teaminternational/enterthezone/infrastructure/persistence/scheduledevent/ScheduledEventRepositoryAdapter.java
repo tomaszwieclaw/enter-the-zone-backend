@@ -5,6 +5,7 @@ import com.teaminternational.enterthezone.domain.repository.ScheduledEventReposi
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,15 @@ public class ScheduledEventRepositoryAdapter implements ScheduledEventRepository
     public List<ScheduledEvent> findAll() {
         return scheduledEventSpringDataRepository
                 .findAll()
+                .stream()
+                .map(scheduledEventEntityMapper::mapToDomainEntity)
+                .toList();
+    }
+
+    @Override
+    public List<ScheduledEvent> findByDate(LocalDate date) {
+        return scheduledEventSpringDataRepository
+                .findAllByEventDate(date)
                 .stream()
                 .map(scheduledEventEntityMapper::mapToDomainEntity)
                 .toList();

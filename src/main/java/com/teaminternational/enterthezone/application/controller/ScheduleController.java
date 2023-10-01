@@ -5,6 +5,7 @@ import com.teaminternational.enterthezone.application.model.GetCurrentScheduleSt
 import com.teaminternational.enterthezone.application.service.ScheduleApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,10 @@ public class ScheduleController {
     @GetMapping
     public GetCurrentScheduleStatusResponse getCurrentScheduleStatus() {
         return scheduleApiService.getCurrentScheduleStatus();
+    }
+
+    @PostMapping("/recalculate")
+    public void recalculateScheduleOnDemand() {
+        scheduleApiService.recalculateScheduleOnDemand();
     }
 }

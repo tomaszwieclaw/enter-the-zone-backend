@@ -17,3 +17,7 @@ databaseChangeLog:
       file: classpath:db/changelog/08-update-table-scheduled-event.sql
   - include:
       file: classpath:db/changelog/09-insert-basic-settings.sql
+  - include:
+      file: classpath:db/changelog/10-create-table-planned-day.sql
+  - include:
+      file: classpath:db/changelog/11-create-table-planned-event.sql
