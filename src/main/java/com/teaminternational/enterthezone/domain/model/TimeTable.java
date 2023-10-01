@@ -21,10 +21,6 @@ import java.util.List;
 public class TimeTable {
     public static final Duration DEFAULT_DURATION = Duration.ofMinutes(15);
 
-    @ValueRangeProvider
-    @ProblemFactCollectionProperty
-    private List<LocalTime> timeEntries;
-
     @PlanningEntityCollectionProperty
     private List<ScheduledEvent> scheduledEvents;
 
@@ -32,10 +28,8 @@ public class TimeTable {
     private HardSoftScore score;
 
     public TimeTable(
-            List<LocalTime> timeEntries,
             List<ScheduledEvent> scheduledEvents
     ) {
-        this.timeEntries = timeEntries;
         this.scheduledEvents = scheduledEvents;
     }
 }

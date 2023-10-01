@@ -1,9 +1,6 @@
 package com.teaminternational.enterthezone.domain.service;
 
-import com.teaminternational.enterthezone.domain.model.BasicSettings;
-import com.teaminternational.enterthezone.domain.model.EventPriority;
-import com.teaminternational.enterthezone.domain.model.EventType;
-import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
+import com.teaminternational.enterthezone.domain.model.*;
 import com.teaminternational.enterthezone.domain.repository.BasicSettingsRepository;
 import com.teaminternational.enterthezone.domain.usecase.GenerateLunchTimeEventUseCase;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +14,7 @@ import java.util.UUID;
 @Service
 public class GenerateLunchTimeEventService implements GenerateLunchTimeEventUseCase {
     private final BasicSettingsRepository basicSettingsRepository;
+    private final TimeEntriesProvider timeEntriesProvider;
 
     @Override
     public ScheduledEvent execute(LocalDate date) {
@@ -28,6 +26,7 @@ public class GenerateLunchTimeEventService implements GenerateLunchTimeEventUseC
                 Duration.ofMinutes(basicSettings.getLunchTimeDurationMinutes()),
                 date,
                 null,
+                timeEntriesProvider.getAvailableTimeEntries(EventType.LUNCH, null),
                 EventPriority.NORMAL,
                 basicSettings.getPreferredLunchTimeWindowStart(),
                 basicSettings.getPreferredLunchTimeWindowEnd()

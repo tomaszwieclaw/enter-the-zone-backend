@@ -7,6 +7,7 @@ import org.optaplanner.core.api.score.stream.ConstraintProvider;
 import org.optaplanner.core.api.score.stream.Joiners;
 
 import java.time.Duration;
+import java.time.LocalTime;
 
 public class TimeTableConstraintProvider implements ConstraintProvider {
 
@@ -14,6 +15,7 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
                 timeEntryConflict(constraintFactory),
+                outOfWorkingHoursConflict(constraintFactory),
                 preferredTimeWindow(constraintFactory),
                 suggestedBreakTimeBetweenInTheZoneMeetings(constraintFactory),
                 suggestedBreakTimeAfterInTheZoneMeeting(constraintFactory),
@@ -30,6 +32,14 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
                 )
                 .penalize(HardSoftScore.ONE_HARD)
                 .asConstraint("TimeEntry conflict");
+    }
+
+    public Constraint outOfWorkingHoursConflict(ConstraintFactory constraintFactory) {
+        return constraintFactory
+                .forEach(ScheduledEvent.class)
+                .filter(e -> e.getStartTime().isBefore(LocalTime.of(9, 0)))
+                .penalize(HardSoftScore.ONE_HARD)
+                .asConstraint("Out of working hours conflict");
     }
 
     public Constraint preferredTimeWindow(ConstraintFactory constraintFactory) {
@@ -72,6 +82,14 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
     }
 
     public Constraint promoteFixedMeetings(ConstraintFactory constraintFactory) {
+        return constraintFactory
+                .forEach(ScheduledEvent.class)
+                .filter(e -> e.getEventType() == EventType.FIXED_MEETING)
+                .reward(HardSoftScore.ONE_HARD)
+                .asConstraint("Promote fixed time meetings");
+    }
+
+    public Constraint skipFixedMeetings(ConstraintFactory constraintFactory) {
         return constraintFactory
                 .forEach(ScheduledEvent.class)
                 .filter(e -> e.getEventType() == EventType.FIXED_MEETING)

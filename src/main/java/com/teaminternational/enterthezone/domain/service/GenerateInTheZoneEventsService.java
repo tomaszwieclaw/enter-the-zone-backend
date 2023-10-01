@@ -1,9 +1,6 @@
 package com.teaminternational.enterthezone.domain.service;
 
-import com.teaminternational.enterthezone.domain.model.BasicSettings;
-import com.teaminternational.enterthezone.domain.model.EventPriority;
-import com.teaminternational.enterthezone.domain.model.EventType;
-import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
+import com.teaminternational.enterthezone.domain.model.*;
 import com.teaminternational.enterthezone.domain.repository.BasicSettingsRepository;
 import com.teaminternational.enterthezone.domain.usecase.GenerateInTheZoneEventsUseCase;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +18,7 @@ import java.util.UUID;
 @Service
 public class GenerateInTheZoneEventsService implements GenerateInTheZoneEventsUseCase {
     private final BasicSettingsRepository basicSettingsRepository;
+    private final TimeEntriesProvider timeEntriesProvider;
 
     @Override
     public List<ScheduledEvent> execute(LocalDate date) {
@@ -44,6 +42,7 @@ public class GenerateInTheZoneEventsService implements GenerateInTheZoneEventsUs
                     eventDuration,
                     date,
                     null,
+                    timeEntriesProvider.getAvailableTimeEntries(EventType.IN_THE_ZONE, null),
                     EventPriority.NORMAL,
                     null,
                     null

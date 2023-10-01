@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,22 +45,9 @@ public class RecalculateCurrentScheduleService implements RecalculateCurrentSche
         events.add(generateLunchTimeEventUseCase.execute(date));
         events.addAll(generateInTheZoneEventsUseCase.execute(date));
         final TimeTable problemDefinition = new TimeTable(
-                workingHours(),
                 events
         );
         final TimeTable solution = organizeSingleDayUseCase.execute(problemDefinition);
         plannedEventRepository.saveSingleDay(date, solution.getScheduledEvents());
-    }
-
-    private List<LocalTime> workingHours() {
-        List<LocalTime> timeEntries = new ArrayList<>();
-        LocalTime dayStartsAt = LocalTime.of(9, 0);
-        timeEntries.add(dayStartsAt);
-        LocalTime nextSlotStartsAt = dayStartsAt.plus(TimeTable.DEFAULT_DURATION);
-        while (nextSlotStartsAt.isBefore(LocalTime.of(17, 1))) {
-            timeEntries.add(nextSlotStartsAt);
-            nextSlotStartsAt = nextSlotStartsAt.plus(TimeTable.DEFAULT_DURATION);
-        }
-        return timeEntries;
     }
 }
