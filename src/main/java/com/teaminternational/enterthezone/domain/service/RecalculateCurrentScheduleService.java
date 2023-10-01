@@ -20,7 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class RecalculateCurrentScheduleService implements RecalculateCurrentScheduleUseCase {
-    private static final long WORKING_DAY_DURATION_MINUTES = Duration.ofHours(8).toMinutes();
+    private static final long MAX_DAILY_CAPACITY_MINUTES = Duration.ofHours(6).toMinutes();
 
     private final ScheduledEventRepository scheduledEventRepository;
     private final OrganizeSingleDayUseCase organizeSingleDayUseCase;
@@ -60,18 +60,18 @@ public class RecalculateCurrentScheduleService implements RecalculateCurrentSche
             List<ScheduledEvent> schedule,
             List<ScheduledEvent> tasks
     ) {
-        long capacityLeft = WORKING_DAY_DURATION_MINUTES - calculateCurrentWorkingDayUsage(schedule);
+        long capacityLeft = MAX_DAILY_CAPACITY_MINUTES - calculateCurrentWorkingDayUsage(schedule);
         while (capacityLeft >= 15) {
             Optional<ScheduledEvent> firstFound = tasks
                     .stream()
-                    .filter(t -> t.getDuration().toMinutes() <= (WORKING_DAY_DURATION_MINUTES - calculateCurrentWorkingDayUsage(schedule)))
+                    .filter(t -> t.getDuration().toMinutes() <= (MAX_DAILY_CAPACITY_MINUTES - calculateCurrentWorkingDayUsage(schedule)))
                     .findFirst();
             if (firstFound.isPresent()) {
                 ScheduledEvent task = firstFound.get();
                 task.setEventDate(date);
                 tasks.remove(task);
                 schedule.add(task);
-                capacityLeft = WORKING_DAY_DURATION_MINUTES - calculateCurrentWorkingDayUsage(schedule);
+                capacityLeft = MAX_DAILY_CAPACITY_MINUTES - calculateCurrentWorkingDayUsage(schedule);
             } else {
                 break;
             }
