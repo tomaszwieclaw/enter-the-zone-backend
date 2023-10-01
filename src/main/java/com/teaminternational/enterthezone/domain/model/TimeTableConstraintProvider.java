@@ -11,7 +11,8 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
     @Override
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[]{
-                timeEntryConflict(constraintFactory)
+                timeEntryConflict(constraintFactory),
+                preferredTimeWindow(constraintFactory)
         };
     }
 
@@ -21,8 +22,23 @@ public class TimeTableConstraintProvider implements ConstraintProvider {
                 .join(
                         ScheduledEvent.class,
                         Joiners.filtering((e1, e2) -> e2.getStartTime().isBefore(e1.getStartTime().plus(e1.getDuration())))
-                        )
+                )
                 .penalize(HardSoftScore.ONE_HARD)
                 .asConstraint("TimeEntry conflict");
+    }
+
+    public Constraint preferredTimeWindow(ConstraintFactory constraintFactory) {
+        return constraintFactory
+                .forEach(ScheduledEvent.class)
+                .filter(scheduledEvent -> {
+                    if (scheduledEvent.getMinPreferredStartTime() != null
+                            && scheduledEvent.getMaxPreferredStartTime() != null) {
+                        return scheduledEvent.getStartTime().isBefore(scheduledEvent.getMinPreferredStartTime())
+                                || scheduledEvent.getStartTime().plus(scheduledEvent.getDuration()).isAfter(scheduledEvent.getMaxPreferredStartTime());
+                    }
+                    return false;
+                })
+                .penalize(HardSoftScore.ONE_SOFT)
+                .asConstraint("Preferred Time Window");
     }
 }

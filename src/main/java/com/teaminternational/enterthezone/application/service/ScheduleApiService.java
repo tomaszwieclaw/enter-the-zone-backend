@@ -5,6 +5,7 @@ import com.teaminternational.enterthezone.application.model.GetCurrentScheduleSt
 import com.teaminternational.enterthezone.domain.model.TimeTableStatus;
 import com.teaminternational.enterthezone.domain.usecase.GetCurrentScheduleUseCase;
 import com.teaminternational.enterthezone.domain.usecase.RecalculateCurrentScheduleUseCase;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class ScheduleApiService {
         );
     }
 
+    @Transactional
     public void recalculateScheduleOnDemand() {
         recalculateCurrentScheduleUseCase.execute();
     }

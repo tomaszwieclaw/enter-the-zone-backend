@@ -27,7 +27,7 @@ public class PlannedEventRepositoryAdapter implements PlannedEventRepository {
                         LocalTime.of(9, 0),
                         LocalTime.of(17, 0)
                 ));
-        plannedDaySpringDataRepository.deleteById(plannedDay.getId());
+        plannedEventSpringDataRepository.deleteAllByPlannedDayId(plannedDay.getId());
         plannedDaySpringDataRepository.save(plannedDay);
         events
                 .stream()

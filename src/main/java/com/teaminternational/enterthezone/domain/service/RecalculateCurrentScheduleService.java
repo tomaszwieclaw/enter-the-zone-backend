@@ -1,13 +1,14 @@
 package com.teaminternational.enterthezone.domain.service;
 
+import com.teaminternational.enterthezone.domain.model.ScheduledEvent;
 import com.teaminternational.enterthezone.domain.model.TimeTable;
 import com.teaminternational.enterthezone.domain.repository.PlannedEventRepository;
 import com.teaminternational.enterthezone.domain.repository.ScheduledEventRepository;
+import com.teaminternational.enterthezone.domain.usecase.GenerateLunchTimeEventUseCase;
 import com.teaminternational.enterthezone.domain.usecase.OrganizeSingleDayUseCase;
 import com.teaminternational.enterthezone.domain.usecase.RecalculateCurrentScheduleUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ public class RecalculateCurrentScheduleService implements RecalculateCurrentSche
     private final ScheduledEventRepository scheduledEventRepository;
     private final OrganizeSingleDayUseCase organizeSingleDayUseCase;
     private final PlannedEventRepository plannedEventRepository;
+    private final GenerateLunchTimeEventUseCase generateLunchTimeEventUseCase;
 
     @Override
     public void execute() {
@@ -38,9 +40,11 @@ public class RecalculateCurrentScheduleService implements RecalculateCurrentSche
 
     private void processDay(LocalDate date) {
         log.info("Processing %s (%s)".formatted(date, date.getDayOfWeek()));
+        final List<ScheduledEvent> events = new ArrayList<>(scheduledEventRepository.findByDate(date));
+        events.add(generateLunchTimeEventUseCase.execute(date));
         final TimeTable problemDefinition = new TimeTable(
                 workingHours(),
-                scheduledEventRepository.findByDate(date)
+                events
         );
         final TimeTable solution = organizeSingleDayUseCase.execute(problemDefinition);
         plannedEventRepository.saveSingleDay(date, solution.getScheduledEvents());
