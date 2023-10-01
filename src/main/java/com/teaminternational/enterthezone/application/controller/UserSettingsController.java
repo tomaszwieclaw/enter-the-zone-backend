@@ -3,14 +3,12 @@ package com.teaminternational.enterthezone.application.controller;
 import com.teaminternational.enterthezone.application.model.UpdateGeneralSettingsRequest;
 import com.teaminternational.enterthezone.application.service.UserSettingsApiService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/api/user-settings")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserSettingsController {
     private final UserSettingsApiService userSettingsApiService;
 

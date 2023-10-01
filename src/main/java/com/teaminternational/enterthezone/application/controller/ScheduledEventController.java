@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/scheduled-events")
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ScheduledEventController {
     private final ScheduledEventApiService scheduledEventApiService;
 
