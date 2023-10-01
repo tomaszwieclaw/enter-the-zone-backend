@@ -45,7 +45,7 @@ public class BasicSettingsRepositoryAdapter implements BasicSettingsRepository {
                 LocalTime.parse(all.get(LUNCH_TIME_WINDOW_START.getId()).getValue()),
                 LocalTime.parse(all.get(LUNCH_TIME_WINDOW_END.getId()).getValue()),
                 Long.parseLong(all.get(LUNCH_DURATION.getId()).getValue()),
-                Duration.ofHours(3).toMinutes(),
+                Duration.ofHours(2).toMinutes(),
                 Duration.ofMinutes(45).toMinutes(),
                 Duration.ofMinutes(30).toMinutes()
         );

@@ -20,7 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class RecalculateCurrentScheduleService implements RecalculateCurrentScheduleUseCase {
-    private static final long MAX_DAILY_CAPACITY_MINUTES = Duration.ofHours(6).toMinutes();
+    private static final long MAX_DAILY_CAPACITY_MINUTES = Duration.ofHours(6).plusMinutes(45).toMinutes();
 
     private final ScheduledEventRepository scheduledEventRepository;
     private final OrganizeSingleDayUseCase organizeSingleDayUseCase;
