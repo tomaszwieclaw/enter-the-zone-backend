@@ -25,3 +25,5 @@ databaseChangeLog:
       file: classpath:db/changelog/12-update-table-scheduled-event.sql
   - include:
       file: classpath:db/changelog/13-update-table-planned-event.sql
+  - include:
+      file: classpath:db/changelog/14-insert-test-data.sql

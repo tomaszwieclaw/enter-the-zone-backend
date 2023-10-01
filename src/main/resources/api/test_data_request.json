@@ -119,6 +119,86 @@
       "priority": "LOW",
       "minPreferredStartTime": null,
       "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Send Email to SD Team",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 15,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Manage Team",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 30,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Manage Team",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 30,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Backlog Refinement",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 60,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Send email to John",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 60,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Check logs",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 15,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Must do it on Friday",
+      "eventType": "TASK",
+      "eventDate": "2023-10-06",
+      "startTime": null,
+      "durationMinutes": 45,
+      "priority": "NORMAL",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "I'd like to work on it after 2 PM",
+      "eventType": "TASK",
+      "eventDate": null,
+      "startTime": null,
+      "durationMinutes": 30,
+      "priority": "LOW",
+      "minPreferredStartTime": "14:00:00",
+      "maxPreferredStartTime": "17:00:00"
     }
   ]
 }
