@@ -1,0 +1,124 @@
+{
+  "scheduledEvents": [
+    {
+      "eventName": "Daily Standup",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-02",
+      "startTime": "09:30:00",
+      "durationMinutes": 15,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Daily Standup",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-03",
+      "startTime": "09:30:00",
+      "durationMinutes": 15,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Daily Standup",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-04",
+      "startTime": "09:30:00",
+      "durationMinutes": 15,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Daily Standup",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-05",
+      "startTime": "09:30:00",
+      "durationMinutes": 15,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Daily Standup",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-06",
+      "startTime": "09:30:00",
+      "durationMinutes": 15,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Tech interview Swissquant",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-03",
+      "startTime": "11:00:00",
+      "durationMinutes": 90,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Tech interview Allica",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-04",
+      "startTime": "16:00:00",
+      "durationMinutes": 60,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Tech interview Rail Europe",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-05",
+      "startTime": "10:00:00",
+      "durationMinutes": 90,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Weekly Sync DevOps",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-06",
+      "startTime": "12:30:00",
+      "durationMinutes": 30,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "Sprint Demo",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-06",
+      "startTime": "13:00:00",
+      "durationMinutes": 60,
+      "priority": "HIGH",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "CTO weekly sync",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-03",
+      "startTime": "13:00:00",
+      "durationMinutes": 30,
+      "priority": "LOW",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    },
+    {
+      "eventName": "English",
+      "eventType": "FIXED_MEETING",
+      "eventDate": "2023-10-05",
+      "startTime": "12:00:00",
+      "durationMinutes": 90,
+      "priority": "LOW",
+      "minPreferredStartTime": null,
+      "maxPreferredStartTime": null
+    }
+  ]
+}
