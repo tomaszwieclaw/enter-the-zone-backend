@@ -31,4 +31,7 @@ public class BasicSettings {
     private LocalTime preferredLunchTimeWindowStart;
     private LocalTime preferredLunchTimeWindowEnd;
     private long lunchTimeDurationMinutes;
+    private long inTheZoneTotalMinutes;
+    private long inTheZoneSingleSessionMinutes;
+    private long inTheZoneMinBreakBetweenSessionsMinutes;
 }

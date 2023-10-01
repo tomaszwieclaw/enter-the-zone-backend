@@ -9,5 +9,5 @@ public interface PlannedEventSpringDataRepository extends JpaRepository<PlannedE
 
     void deleteAllByPlannedDayId(UUID plannedDayId);
 
-    List<PlannedEventEntity> findAllByPlannedDayId(UUID plannedDayId);
+    List<PlannedEventEntity> findAllByPlannedDayIdOrderByStartTime(UUID plannedDayId);
 }

@@ -68,15 +68,15 @@ public class PlannedEventRepositoryAdapter implements PlannedEventRepository {
                 .orElseGet(() -> emptyDay(LocalDate.of(2023, Month.OCTOBER, 6)));
         return new PlannedSchedule(
                 monday,
-                plannedEventSpringDataRepository.findAllByPlannedDayId(monday.getId()),
+                plannedEventSpringDataRepository.findAllByPlannedDayIdOrderByStartTime(monday.getId()),
                 tuesday,
-                plannedEventSpringDataRepository.findAllByPlannedDayId(tuesday.getId()),
+                plannedEventSpringDataRepository.findAllByPlannedDayIdOrderByStartTime(tuesday.getId()),
                 wednesday,
-                plannedEventSpringDataRepository.findAllByPlannedDayId(wednesday.getId()),
+                plannedEventSpringDataRepository.findAllByPlannedDayIdOrderByStartTime(wednesday.getId()),
                 thursday,
-                plannedEventSpringDataRepository.findAllByPlannedDayId(thursday.getId()),
+                plannedEventSpringDataRepository.findAllByPlannedDayIdOrderByStartTime(thursday.getId()),
                 friday,
-                plannedEventSpringDataRepository.findAllByPlannedDayId(friday.getId())
+                plannedEventSpringDataRepository.findAllByPlannedDayIdOrderByStartTime(friday.getId())
         );
     }
 
