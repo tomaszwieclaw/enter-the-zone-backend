@@ -1,5 +1,6 @@
 spring:
   datasource:
+    #url: jdbc:postgresql://db:5432/test_db # For docker compose build
     url: jdbc:postgresql://localhost:5455/test_db
     username: postgres
     password: postgres
